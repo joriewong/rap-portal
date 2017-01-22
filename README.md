@@ -1,58 +1,57 @@
 # rap-portal
-ÓÃ»§
-/account
-	µÇÂ¼/login
-ÍÅ¶Ó
-/team
-	ÍÅ¶ÓÁĞ±í/teams
-	´´½¨ÍÅ¶Ó/create
-	ĞŞ¸ÄÍÅ¶Ó/update
-	Ìí¼Ó³ÉÔ±/addmembers
-	É¾³ı³ÉÔ±/deletemember
-²úÆ·Ïß
-/productline
-	²úÆ·ÏßÁĞ±í/productlines
-	´´½¨²úÆ·Ïß/create
-	É¾³ı²úÆ·Ïß/delete
-	ĞŞ¸Ä²úÆ·Ïß/update
-×é
-/group
-	·Ö×éÁĞ±í/productlines
-	´´½¨·Ö×é/create
-	É¾³ı·Ö×é/delete
-	ĞŞ¸Ä·Ö×é/update
-ÏîÄ¿Õ¹Ê¾
-	/org/projects
-ÏîÄ¿
-/project
-	´´½¨ÏîÄ¿/create
-	É¾³ıÏîÄ¿/delete
-	ĞŞ¸ÄÏîÄ¿/update
-¹¤×÷¿Õ¼ä
-/workspace
-	¼ÓÔØ¿Õ¼ä/load
-API
-/openapi
-	»ñÈ¡Ä³°æ±¾ÏîÄ¿ĞÅÏ¢/querymodel
-	»ñÈ¡Ä³°æ±¾ÏîÄ¿Ä³¸ö½Ó¿ÚÏêÇé/queryschema
-	»ñÈ¡Ä³ÏîÄ¿µÄËùÓĞ½Ó¿ÚÏêÇéºÍmockÊı¾İ/queryrapmodel
-	ĞŞ¸Ämock¹æÔò/modifymockrules
-	É¾³ımock¹æÔò/resetmockrules
-mock
-/mock
-	´´½¨mockÊı¾İ/create
-	É¾³ımockÊı¾İ/reset
-	ĞŞ¸ÄmockÊı¾İ/modify
-	²éÑ¯mockÊı¾İ/query
-	´´½¨¹æÔò/rule/create
-	×Ô¶¯´´½¨¹æÔò/rule/autocreate
-	Í¨¹ıÇëÇó´´½¨¹æÔò/rule/createbyaction
-	´´½¨mockjsÊı¾İ/mockjs/create
-	×Ô¶¯´´½¨mockjsÊı¾İ/mockjs/autocreate
-	»ñÈ¡Ä³ÏîÄ¿µÄÇëÇóurl/urllist
-
-1.¹ıÂËÆ÷
-2.sessionÖĞµÄµ±Ç°ÓÃ»§
-3.OrganizationºÍProjectÕûºÏ
-4.×¢ÊÍ
-	
+ç”¨æˆ·<br />
+/account<br />
+	ç™»å½•/login<br />
+å›¢é˜Ÿ<br />
+/team<br />
+	å›¢é˜Ÿåˆ—è¡¨/teams<br />
+	åˆ›å»ºå›¢é˜Ÿ/create<br />
+	ä¿®æ”¹å›¢é˜Ÿ/update<br />
+	æ·»åŠ æˆå‘˜/addmembers<br />
+	åˆ é™¤æˆå‘˜/deletemember<br />
+äº§å“çº¿<br />
+/productline<br />
+	äº§å“çº¿åˆ—è¡¨/productlines<br />
+	åˆ›å»ºäº§å“çº¿/create<br />
+	åˆ é™¤äº§å“çº¿/delete<br />
+	ä¿®æ”¹äº§å“çº¿/update<br />
+ç»„<br />
+/group<br />
+	åˆ†ç»„åˆ—è¡¨/productlines<br />
+	åˆ›å»ºåˆ†ç»„/create<br />
+	åˆ é™¤åˆ†ç»„/delete<br />
+	ä¿®æ”¹åˆ†ç»„/update<br />
+é¡¹ç›®å±•ç¤º<br />
+	/org/projects<br />
+é¡¹ç›®<br />
+/project<br />
+	åˆ›å»ºé¡¹ç›®/create<br />
+	åˆ é™¤é¡¹ç›®/delete<br />
+	ä¿®æ”¹é¡¹ç›®/update<br />
+å·¥ä½œç©ºé—´<br />
+/workspace<br />
+	åŠ è½½ç©ºé—´/load<br />
+API<br />
+/openapi<br />
+	è·å–æŸç‰ˆæœ¬é¡¹ç›®ä¿¡æ¯/querymodel<br />
+	è·å–æŸç‰ˆæœ¬é¡¹ç›®æŸä¸ªæ¥å£è¯¦æƒ…/queryschema<br />
+	è·å–æŸé¡¹ç›®çš„æ‰€æœ‰æ¥å£è¯¦æƒ…å’Œmockæ•°æ®/queryrapmodel<br />
+	ä¿®æ”¹mockè§„åˆ™/modifymockrules<br />
+	åˆ é™¤mockè§„åˆ™/resetmockrules<br />
+mock<br />
+/mock<br />
+	åˆ›å»ºmockæ•°æ®/create<br />
+	åˆ é™¤mockæ•°æ®/reset<br />
+	ä¿®æ”¹mockæ•°æ®/modify<br />
+	æŸ¥è¯¢mockæ•°æ®/query<br />
+	åˆ›å»ºè§„åˆ™/rule/create<br />
+	è‡ªåŠ¨åˆ›å»ºè§„åˆ™/rule/autocreate<br />
+	é€šè¿‡è¯·æ±‚åˆ›å»ºè§„åˆ™/rule/createbyaction<br />
+	åˆ›å»ºmockjsæ•°æ®/mockjs/create<br />
+	è‡ªåŠ¨åˆ›å»ºmockjsæ•°æ®/mockjs/autocreate<br />
+	è·å–æŸé¡¹ç›®çš„è¯·æ±‚url/urllist<br />
+<br />
+1.è¿‡æ»¤å™¨<br />
+2.sessionä¸­çš„å½“å‰ç”¨æˆ·<br />
+3.Organizationå’ŒProjectæ•´åˆ<br />
+4.æ³¨é‡Š<br />
