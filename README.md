@@ -1,57 +1,58 @@
 # rap-portal
-用户<br />
-/account<br />
-	登录/login<br />
-团队<br />
-/team<br />
-	团队列表/teams<br />
-	创建团队/create<br />
-	修改团队/update<br />
-	添加成员/addmembers<br />
-	删除成员/deletemember<br />
-产品线<br />
-/productline<br />
-	产品线列表/productlines<br />
-	创建产品线/create<br />
-	删除产品线/delete<br />
-	修改产品线/update<br />
-组<br />
-/group<br />
-	分组列表/productlines<br />
-	创建分组/create<br />
-	删除分组/delete<br />
-	修改分组/update<br />
-项目展示<br />
-	/org/projects<br />
-项目<br />
-/project<br />
-	创建项目/create<br />
-	删除项目/delete<br />
-	修改项目/update<br />
-工作空间<br />
-/workspace<br />
-	加载空间/load<br />
-API<br />
-/openapi<br />
-	获取某版本项目信息/querymodel<br />
-	获取某版本项目某个接口详情/queryschema<br />
-	获取某项目的所有接口详情和mock数据/queryrapmodel<br />
-	修改mock规则/modifymockrules<br />
-	删除mock规则/resetmockrules<br />
-mock<br />
-/mock<br />
-	创建mock数据/create<br />
-	删除mock数据/reset<br />
-	修改mock数据/modify<br />
-	查询mock数据/query<br />
-	创建规则/rule/create<br />
-	自动创建规则/rule/autocreate<br />
-	通过请求创建规则/rule/createbyaction<br />
-	创建mockjs数据/mockjs/create<br />
-	自动创建mockjs数据/mockjs/autocreate<br />
-	获取某项目的请求url/urllist<br />
+一、用户<br />
+&nbsp;/account<br />
+&nbsp;&nbsp;登录/login<br />
+二、团队<br />
+&nbsp;/team<br />
+&nbsp;&nbsp;1.团队列表/teams<br />
+&nbsp;&nbsp;2.创建团队/create<br />
+&nbsp;&nbsp;3.修改团队/update<br />
+&nbsp;&nbsp;4.添加成员/addmembers<br />
+&nbsp;&nbsp;5.删除成员/deletemember<br />
+三、产品线<br />
+&nbsp;/productline<br />
+&nbsp;&nbsp;1.产品线列表/productlines<br />
+&nbsp;&nbsp;2.创建产品线/create<br />
+&nbsp;&nbsp;3.删除产品线/delete<br />
+&nbsp;&nbsp;4.修改产品线/update<br />
+四、组<br />
+&nbsp;/group<br />
+&nbsp;&nbsp;1.分组列表/productlines<br />
+&nbsp;&nbsp;2.创建分组/create<br />
+&nbsp;&nbsp;3.删除分组/delete<br />
+&nbsp;&nbsp;4.修改分组/update<br />
+五、项目展示<br />
+&nbsp;/org/projects<br />
+六、项目<br />
+&nbsp;/project<br />
+&nbsp;&nbsp;1.创建项目/create<br />
+&nbsp;&nbsp;2.删除项目/delete<br />
+&nbsp;&nbsp;3.修改项目/update<br />
+七、工作空间<br />
+&nbsp;/workspace<br />
+&nbsp;&nbsp;加载空间/load<br />
+八、API<br />
+&nbsp;/openapi<br />
+&nbsp;&nbsp;1.获取某版本项目信息/querymodel<br />
+&nbsp;&nbsp;2.获取某版本项目某个接口详情/queryschema<br />
+&nbsp;&nbsp;3.获取某项目的所有接口详情和mock数据/queryrapmodel<br />
+&nbsp;&nbsp;4.修改mock规则/modifymockrules<br />
+&nbsp;&nbsp;5.删除mock规则/resetmockrules<br />
+九、mock<br />
+&nbsp;/mock<br />
+&nbsp;&nbsp;1.创建mock数据/create<br />
+&nbsp;&nbsp;2.删除mock数据/reset<br />
+&nbsp;&nbsp;3.修改mock数据/modify<br />
+&nbsp;&nbsp;4.查询mock数据/query<br />
+&nbsp;&nbsp;5.创建规则/rule/create<br />
+&nbsp;&nbsp;6.自动创建规则/rule/autocreate<br />
+&nbsp;&nbsp;7.通过请求创建规则/rule/createbyaction<br />
+&nbsp;&nbsp;8.创建mockjs数据/mockjs/create<br />
+&nbsp;&nbsp;9.自动创建mockjs数据/mockjs/autocreate<br />
+&nbsp;&nbsp;10.获取某项目的请求url/urllist<br />
 <br />
-1.过滤器<br />
-2.session中的当前用户<br />
-3.Organization和Project整合<br />
-4.注释<br />
+年后改进:
+&nbsp;1.过滤器<br />
+&nbsp;2.session中的当前用户<br />
+&nbsp;3.Organization和Project整合<br />
+&nbsp;4.注释<br />
