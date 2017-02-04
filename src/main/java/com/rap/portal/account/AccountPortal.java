@@ -28,7 +28,7 @@ public class AccountPortal {
 	private String error = "{\"msg\":\"error\"}";
 	private String success = "{\"msg\":\"success\"}";
     /**
-	 * ��¼
+	 * µÇÂ¼
 	 * @param account
 	 * @param password
 	 * @return
@@ -43,8 +43,8 @@ public class AccountPortal {
 			User user = accountMgr.getUser(account);
 			if (user != null && user.getId() > 0) {
 				session.setAttribute("KEY_ACCOUNT", user.getAccount());
-				session.setAttribute("KEY_USER_ID", user.getAccount());
-				session.setAttribute("KEY_NAME", user.getAccount());
+				session.setAttribute("KEY_USER_ID", user.getId());
+				session.setAttribute("KEY_NAME", user.getName());
 				Set<Role> roleList = new HashSet<Role>();
 				for (Role role : user.getRoleList()) {
 					Role copied = new Role();
