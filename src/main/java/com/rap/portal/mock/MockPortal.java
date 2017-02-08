@@ -6,12 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -40,7 +43,6 @@ public class MockPortal {
 	private String success = "{\"msg\":\"success\"}";
 	/**
 	 * 创建mock数据
-	 * @param curUserId
 	 * @param pattern
 	 * @param projectId
 	 * @return
@@ -48,11 +50,13 @@ public class MockPortal {
 	 */
 	@Path("/create")
 	@POST
-	public String createData(@QueryParam("curuserid") int curUserId,
+	public String createData(@Context HttpServletRequest request,
 			@QueryParam("pattern") String pattern,
 			@QueryParam("projectid") int projectId,
 			@QueryParam("callback") String cb,
 			@QueryParam("_c" ) String c) throws UnsupportedEncodingException {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		User curUser = accountMgr.getUser(curUserId);
         String callback = StringUtils.escapeInHJ(cb);
         String content = "";
@@ -172,7 +176,6 @@ public class MockPortal {
 	}
 	/**
 	 * 自动创建规则
-	 * @param curUserId
 	 * @param cb
 	 * @param projectId
 	 * @param pattern
@@ -183,12 +186,14 @@ public class MockPortal {
 	 */
 	@Path("/rule/autocreate")
 	@POST
-	public String createRuleAuto(@QueryParam("curuserid") int curUserId,
+	public String createRuleAuto(@Context HttpServletRequest request,
 			@QueryParam("callback") String cb,
 			@QueryParam("projectid") int projectId,
 			@QueryParam("pattern") String pattern,
 			@QueryParam("method") String method,
 			@QueryParam("_c") String c) throws UnsupportedEncodingException {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		User curUser = accountMgr.getUser(curUserId);
 		String callback = cb;
 		String content = "";
@@ -220,7 +225,6 @@ public class MockPortal {
 	}
 	/**
 	 * 通过请求创建规则
-	 * @param curUserId
 	 * @param cb
 	 * @param projectId
 	 * @param pattern
@@ -230,11 +234,13 @@ public class MockPortal {
 	 */
 	@Path("/rule/createbyaction")
 	@POST
-	public String createRuleByAction(@QueryParam("curuserid") int curUserId,
+	public String createRuleByAction(@Context HttpServletRequest request,
 			@QueryParam("callback") String cb,
 			@QueryParam("projectid") int projectId,
 			@QueryParam("pattern") String pattern,
 			@QueryParam("_c") String c) throws UnsupportedEncodingException {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		User curUser = accountMgr.getUser(curUserId);
 		String callback = cb;
 		String content = "";
@@ -263,7 +269,6 @@ public class MockPortal {
 	}
 	/**
 	 * 创建mockjs数据
-	 * @param curUserId
 	 * @param cb
 	 * @param projectId
 	 * @param pattern
@@ -274,12 +279,14 @@ public class MockPortal {
 	 */
 	@Path("/mockjs/create")
 	@POST
-	public String createMockjsData(@QueryParam("curuserid") int curUserId,
+	public String createMockjsData(@Context HttpServletRequest request,
 			@QueryParam("callback") String cb,
 			@QueryParam("projectid") int projectId,
 			@QueryParam("pattern") String pattern,
 			@QueryParam("method") String method,
 			@QueryParam("_c") String c) throws UnsupportedEncodingException {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		User curUser = accountMgr.getUser(curUserId);
 		String callback = cb;
 		String content = "";
@@ -309,7 +316,6 @@ public class MockPortal {
 	}
 	/**
 	 * 自动创建mockjs数据
-	 * @param curUserId
 	 * @param cb
 	 * @param projectId
 	 * @param pattern
@@ -320,12 +326,14 @@ public class MockPortal {
 	 */
 	@Path("/mockjs/autocreate")
 	@POST
-	public String createMockjsDataAuto(@QueryParam("curuserid") int curUserId,
+	public String createMockjsDataAuto(@Context HttpServletRequest request,
 			@QueryParam("callback") String cb,
 			@QueryParam("projectid") int projectId,
 			@QueryParam("pattern") String pattern,
 			@QueryParam("method") String method,
 			@QueryParam("_c") String c) throws UnsupportedEncodingException {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		User curUser = accountMgr.getUser(curUserId);
 		String callback = cb;
 		String content = "";

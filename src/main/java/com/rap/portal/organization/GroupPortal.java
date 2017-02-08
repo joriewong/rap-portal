@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -12,6 +14,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -31,14 +34,15 @@ public class GroupPortal {
 	private String success = "{\"msg\":\"success\"}";
 	/**
 	 * 分组列表
-	 * @param curUserId
 	 * @param productlineId
 	 * @return
 	 */
 	@Path("/groups")
 	@GET
-	public String getGroups(@QueryParam("curuserid") int curUserId,
+	public String getGroups(@Context HttpServletRequest request,
 			@QueryParam("productlineid") int productlineId) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		if (!organizationMgr.canUserAccessProductionLine(curUserId, productlineId)) {
             return error;
         }
@@ -57,16 +61,17 @@ public class GroupPortal {
 	}
 	/**
 	 * 创建分组
-	 * @param curUserId
 	 * @param productlineId
 	 * @param name
 	 * @return
 	 */
 	@Path("/create")
 	@POST
-	public String createGroup(@QueryParam("curuserid") int curUserId,
+	public String createGroup(@Context HttpServletRequest request,
 			@QueryParam("productlineid") int productlineId,
 			@QueryParam("name") String name) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		if (!organizationMgr.canUserManageProductionLine(curUserId, productlineId)) {
 			return error;
 		}
@@ -82,14 +87,15 @@ public class GroupPortal {
 	}
 	/**
 	 * 删除分组
-	 * @param curUserId
 	 * @param id
 	 * @return
 	 */
 	@Path("/delete")
 	@DELETE
-	public String deleteGroup(@QueryParam("curuserid") int curUserId,
+	public String deleteGroup(@Context HttpServletRequest request,
 			@QueryParam("id") int id) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		if (!organizationMgr.canUserManageGroup(curUserId, id)) {
 			return error;
 		}
@@ -97,16 +103,17 @@ public class GroupPortal {
 	}
 	/**
 	 * 修改分组
-	 * @param curUserId
 	 * @param id
 	 * @param name
 	 * @return
 	 */
 	@Path("/update")
 	@PUT
-	public String updateGroup(@QueryParam("curuserid") int curUserId,
+	public String updateGroup(@Context HttpServletRequest request,
 			@QueryParam("id") int id,
 			@QueryParam("name") String name) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		if (!organizationMgr.canUserManageGroup(curUserId, id)) {
             return "error";
         }

@@ -1,9 +1,12 @@
 package com.rap.portal.workspace;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -22,14 +25,15 @@ public class WorkspacePortal {
 	private OrganizationMgr organizationMgr = context.getBean("organizationMgr",OrganizationMgr.class);
 	/**
 	 * 加载工作空间
-	 * @param curUserId
 	 * @param projectId
 	 * @return
 	 */
 	@Path("/load")
 	@GET
-	public String loadWorkspace(@QueryParam("curuserid") int curUserId,
+	public String loadWorkspace(@Context HttpServletRequest request,
 			@QueryParam("projectid") int projectId) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		Project p = projectMgr.getProject(projectId);
 
         if (p == null || p.getId() <= 0) {

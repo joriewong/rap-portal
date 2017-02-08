@@ -2,6 +2,8 @@ package com.rap.portal.organization;
 
 import java.util.Arrays;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -9,6 +11,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -70,7 +73,6 @@ public class TeamPortal {
 	}
 	/**
 	 * 修改团队
-	 * @param curUserId
 	 * @param id
 	 * @param name
 	 * @param desc
@@ -79,11 +81,13 @@ public class TeamPortal {
 	 */
 	@Path("/update")
 	@PUT
-	public String updateGroup(@QueryParam("curuserid") int curUserId,
+	public String updateGroup(@Context HttpServletRequest request,
 			@QueryParam("id") int id,
 			@QueryParam("name") String name,
 			@QueryParam("desc") String desc,
 			@QueryParam("accesstype") short accessType) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
         User curUser = accountMgr.getUser(curUserId);
         if (curUser == null) {
             return error;
@@ -104,7 +108,6 @@ public class TeamPortal {
 	} 
 	/**
 	 * 添加成员
-	 * @param curUserId
 	 * @param userId
 	 * @param corpId
 	 * @param roleId
@@ -112,10 +115,12 @@ public class TeamPortal {
 	 */
 	@Path("/addmembers")
 	@POST
-	public String addMembers(@QueryParam("curuserid") int curUserId,
-			@QueryParam("curuserid") int userId,
-			@QueryParam("curuserid") int corpId,
-			@QueryParam("curuserid") int roleId) {
+	public String addMembers(@Context HttpServletRequest request,
+			@QueryParam("userid") int userId,
+			@QueryParam("corpid") int corpId,
+			@QueryParam("roleid") int roleId) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		User curUser = accountMgr.getUser(curUserId);
 		if (curUser == null) {
 			return error;
@@ -128,7 +133,6 @@ public class TeamPortal {
 	}
 	/**
 	 * 删除成员
-	 * @param curUserId
 	 * @param userId
 	 * @param corpId
 	 * @param roleId
@@ -136,10 +140,12 @@ public class TeamPortal {
 	 */
 	@Path("/deletemember")
 	@DELETE
-	public String deletemember(@QueryParam("curuserid") int curUserId,
+	public String deletemember(@Context HttpServletRequest request,
 			@QueryParam("curuserid") int userId,
 			@QueryParam("curuserid") int corpId,
 			@QueryParam("curuserid") int roleId) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		User curUser = accountMgr.getUser(curUserId);
 		if (curUser == null) {
 			return error;

@@ -28,7 +28,7 @@ public class AccountPortal {
 	private String error = "{\"msg\":\"error\"}";
 	private String success = "{\"msg\":\"success\"}";
     /**
-	 * µÇÂ¼
+	 * ��¼
 	 * @param account
 	 * @param password
 	 * @return

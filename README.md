@@ -1,52 +1,50 @@
-# rap-portal
-ä¸€ã€ç”¨æˆ·<br />
-&nbsp;/account<br />
-&nbsp;&nbsp;ç™»å½•/login<br />
-äºŒã€å›¢é˜Ÿ<br />
-&nbsp;/team<br />
-&nbsp;&nbsp;1.å›¢é˜Ÿåˆ—è¡¨/teams<br />
-&nbsp;&nbsp;2.åˆ›å»ºå›¢é˜Ÿ/create<br />
-&nbsp;&nbsp;3.ä¿®æ”¹å›¢é˜Ÿ/update<br />
-&nbsp;&nbsp;4.æ·»åŠ æˆå‘˜/addmembers<br />
-&nbsp;&nbsp;5.åˆ é™¤æˆå‘˜/deletemember<br />
-ä¸‰ã€äº§å“çº¿<br />
-&nbsp;/productline<br />
-&nbsp;&nbsp;1.äº§å“çº¿åˆ—è¡¨/productlines<br />
-&nbsp;&nbsp;2.åˆ›å»ºäº§å“çº¿/create<br />
-&nbsp;&nbsp;3.åˆ é™¤äº§å“çº¿/delete<br />
-&nbsp;&nbsp;4.ä¿®æ”¹äº§å“çº¿/update<br />
-å››ã€ç»„<br />
-&nbsp;/group<br />
-&nbsp;&nbsp;1.åˆ†ç»„åˆ—è¡¨/productlines<br />
-&nbsp;&nbsp;2.åˆ›å»ºåˆ†ç»„/create<br />
-&nbsp;&nbsp;3.åˆ é™¤åˆ†ç»„/delete<br />
-&nbsp;&nbsp;4.ä¿®æ”¹åˆ†ç»„/update<br />
-äº”ã€é¡¹ç›®<br />
-&nbsp;/project<br />
-&nbsp;&nbsp;1.é¡¹ç›®åˆ—è¡¨/projects<br />
-&nbsp;&nbsp;2.åˆ›å»ºé¡¹ç›®/create<br />
-&nbsp;&nbsp;3.åˆ é™¤é¡¹ç›®/delete<br />
-&nbsp;&nbsp;4.ä¿®æ”¹é¡¹ç›®/update<br />
-å…­ã€å·¥ä½œç©ºé—´<br />
-&nbsp;/workspace<br />
-&nbsp;&nbsp;åŠ è½½ç©ºé—´/load<br />
-ä¸ƒã€API<br />
-&nbsp;/openapi<br />
-&nbsp;&nbsp;1.è·å–æŸç‰ˆæœ¬é¡¹ç›®ä¿¡æ¯/querymodel<br />
-&nbsp;&nbsp;2.è·å–æŸç‰ˆæœ¬é¡¹ç›®æŸä¸ªæ¥å£è¯¦æƒ…/queryschema<br />
-&nbsp;&nbsp;3.è·å–æŸé¡¹ç›®çš„æ‰€æœ‰æ¥å£è¯¦æƒ…å’Œmockæ•°æ®/queryrapmodel<br />
-&nbsp;&nbsp;4.ä¿®æ”¹mockè§„åˆ™/modifymockrules<br />
-&nbsp;&nbsp;5.åˆ é™¤mockè§„åˆ™/resetmockrules<br />
-å…«ã€mock<br />
-&nbsp;/mock<br />
-&nbsp;&nbsp;1.åˆ›å»ºmockæ•°æ®/create<br />
-&nbsp;&nbsp;2.åˆ é™¤mockæ•°æ®/reset<br />
-&nbsp;&nbsp;3.ä¿®æ”¹mockæ•°æ®/modify<br />
-&nbsp;&nbsp;4.æŸ¥è¯¢mockæ•°æ®/query<br />
-&nbsp;&nbsp;5.åˆ›å»ºè§„åˆ™/rule/create<br />
-&nbsp;&nbsp;6.è‡ªåŠ¨åˆ›å»ºè§„åˆ™/rule/autocreate<br />
-&nbsp;&nbsp;7.é€šè¿‡è¯·æ±‚åˆ›å»ºè§„åˆ™/rule/createbyaction<br />
-&nbsp;&nbsp;8.åˆ›å»ºmockjsæ•°æ®/mockjs/create<br />
-&nbsp;&nbsp;9.è‡ªåŠ¨åˆ›å»ºmockjsæ•°æ®/mockjs/autocreate<br />
-&nbsp;&nbsp;10.è·å–æŸé¡¹ç›®çš„è¯·æ±‚url/urllist<br />
-<br />
+ÓÃ»§
+/account
+	µÇÂ¼/login
+ÍÅ¶Ó
+/team
+	ÍÅ¶ÓÁĞ±í/teams
+	´´½¨ÍÅ¶Ó/create
+	ĞŞ¸ÄÍÅ¶Ó/update
+	Ìí¼Ó³ÉÔ±/addmembers
+	É¾³ı³ÉÔ±/deletemember
+²úÆ·Ïß
+/productline
+	²úÆ·ÏßÁĞ±í/productlines
+	´´½¨²úÆ·Ïß/create
+	É¾³ı²úÆ·Ïß/delete
+	ĞŞ¸Ä²úÆ·Ïß/update
+×é
+/group
+	·Ö×éÁĞ±í/productlines
+	´´½¨·Ö×é/create
+	É¾³ı·Ö×é/delete
+	ĞŞ¸Ä·Ö×é/update
+ÏîÄ¿
+/project
+	ÏîÄ¿ÁĞ±í/projects
+	´´½¨ÏîÄ¿/create
+	É¾³ıÏîÄ¿/delete
+	ĞŞ¸ÄÏîÄ¿/update
+¹¤×÷¿Õ¼ä
+/workspace
+	¼ÓÔØ¿Õ¼ä/load
+API
+/openapi
+	»ñÈ¡Ä³°æ±¾ÏîÄ¿ĞÅÏ¢/querymodel
+	»ñÈ¡Ä³°æ±¾ÏîÄ¿Ä³¸ö½Ó¿ÚÏêÇé/queryschema
+	»ñÈ¡Ä³ÏîÄ¿µÄËùÓĞ½Ó¿ÚÏêÇéºÍmockÊı¾İ/queryrapmodel
+	ĞŞ¸Ämock¹æÔò/modifymockrules
+	É¾³ımock¹æÔò/resetmockrules
+mock
+/mock
+	´´½¨mockÊı¾İ/create
+	É¾³ımockÊı¾İ/reset
+	ĞŞ¸ÄmockÊı¾İ/modify
+	²éÑ¯mockÊı¾İ/query
+	´´½¨¹æÔò/rule/create
+	×Ô¶¯´´½¨¹æÔò/rule/autocreate
+	Í¨¹ıÇëÇó´´½¨¹æÔò/rule/createbyaction
+	´´½¨mockjsÊı¾İ/mockjs/create
+	×Ô¶¯´´½¨mockjsÊı¾İ/mockjs/autocreate
+	»ñÈ¡Ä³ÏîÄ¿µÄÇëÇóurl/urllist	

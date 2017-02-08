@@ -20,12 +20,11 @@ public class AuthorizationRequestFilter implements ContainerRequestFilter {
 		if (request.getRequestURI().toString().endsWith("/login")) {
 			return;
 		}
-		if (request.getSession() == null) {
+		if (request.getSession().getAttribute("KEY_ACCOUNT") == null) {
 			requestContext.abortWith(Response
                     .status(Response.Status.UNAUTHORIZED)
                     .entity("Please login!!!")
                     .build());
 		}
 	}
-
 }

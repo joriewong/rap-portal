@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -12,6 +14,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -31,14 +34,15 @@ public class ProductlinePortal {
 	private String success = "{\"msg\":\"success\"}";
     /**
      * 产品线列表
-     * @param curUserId
      * @param corpId
      * @return
      */
     @Path("/productlines")
     @GET
-    public String getProductlines(@QueryParam("curuserid") int curUserId,
+    public String getProductlines(@Context HttpServletRequest request,
     		@QueryParam("corpid") int corpId){
+    	HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
     	if (!organizationMgr.canUserAccessCorp(curUserId, corpId)) {
             return error;
         }
@@ -59,15 +63,16 @@ public class ProductlinePortal {
     /**
      * 创建产品线
      * @param name
-     * @param curUserId
      * @param corpId
      * @return
      */
     @Path("/create")
     @POST
     public String createProductline(@QueryParam("name") String name,
-    		@QueryParam("curuserid") int curUserId,
+    		@Context HttpServletRequest request,
     		@QueryParam("corpid") int corpId) {
+    	HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
     	if (!organizationMgr.canUserManageProductionLineList(curUserId, corpId)) {
             return error;
         }
@@ -83,14 +88,15 @@ public class ProductlinePortal {
     }
     /**
      * 删除产品线
-     * @param curUserId
      * @param id
      * @return
      */
     @Path("/delete")
     @DELETE
-    public String deleteProductline(@QueryParam("curuserid") int curUserId,
+    public String deleteProductline(@Context HttpServletRequest request,
     		@QueryParam("id") int id) {
+    	HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
     	if (!organizationMgr.canUserManageProductionLine(curUserId, id)) {
             return error;
         }
@@ -98,15 +104,16 @@ public class ProductlinePortal {
     }
     /**
 	 * 修改产品线
-	 * @param curUserId
 	 * @param id
 	 * @param name
 	 * @return
 	 */
 	@Path("/update")
 	@PUT
-	public String updateGroup(@QueryParam("curuserid") int curUserId,
+	public String updateGroup(@Context HttpServletRequest request,
 			@QueryParam("id") int id,@QueryParam("name") String name) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		if (!organizationMgr.canUserManageProductionLine(curUserId, id)) {
             return error;
         }

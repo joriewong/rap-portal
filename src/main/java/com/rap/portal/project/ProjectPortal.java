@@ -6,12 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -35,8 +39,44 @@ public class ProjectPortal {
 	private String error = "{\"msg\":\"error\"}";
 	private String success = "{\"msg\":\"success\"}";
 	/**
+	 * 项目列表
+	 * @return
+	 */
+	@Path("/projects")
+	@GET
+	public String getProjects(@Context HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
+		List<Map<String, Object>> projects = new ArrayList<Map<String, Object>>();
+		User curUser = accountMgr.getUser(curUserId);
+		List<Project> projectList = projectMgr.getProjectList(curUser, 1, Integer.MAX_VALUE);
+		
+		for (Project p : projectList) {
+			Map<String, Object> map = new HashMap<String, Object>();
+            map.put("id", p.getId());
+            map.put("name", p.getName());
+            map.put("desc", p.getIntroduction());
+            map.put("status", p.getLastUpdateStr());
+            map.put("accounts", p.getMemberAccountListStr());
+            map.put("isManagable", p.isManagable());
+            map.put("isDeletable", p.isDeletable());
+            map.put("creator", p.getUser().getUserBaseInfo());
+            map.put("related", p.getUser().getId() != curUserId);
+            map.put("teamId", p.getTeamId());
+            projects.add(map);
+		}
+		StringBuilder json = new StringBuilder();
+        json.append("{");
+        json.append("	\"groups\" : [{");
+        json.append("		\"type\" : \"user\",");
+        json.append("		\"projects\" :");
+        json.append(gson.toJson(projects));
+        json.append("	}]");
+        json.append("}");
+		return json.toString();
+	}
+	/**
 	 * 创建项目
-	 * @param curUserId
 	 * @param desc
 	 * @param name
 	 * @param groupId
@@ -45,11 +85,13 @@ public class ProjectPortal {
 	 */
 	@Path("/create")
 	@POST
-	public String createProject(@QueryParam("curuserid") int curUserId,
+	public String createProject(@Context HttpServletRequest request,
 			@QueryParam("desc") String desc,
 			@QueryParam("name") String name,
 			@QueryParam("groupid") int groupId,
 			@QueryParam("accountlist") String accountList) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		Project project = new Project();
 		project.setCreateDate(new Date());
 		User curUser = accountMgr.getUser(curUserId);
@@ -84,14 +126,15 @@ public class ProjectPortal {
 	}
 	/**
 	 * 删除项目
-	 * @param curUserId
 	 * @param id
 	 * @return
 	 */
 	@Path("/delete")
 	@DELETE
-	public String deleteProject(@QueryParam("curuserid") int curUserId,
+	public String deleteProject(@Context HttpServletRequest request,
 			@QueryParam("id") int id) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		if (!organizationMgr.canUserDeleteProject(curUserId, id)) {
 			return error;
         }
@@ -100,7 +143,6 @@ public class ProjectPortal {
 	}
 	/**
 	 * 修改项目
-	 * @param curUserId
 	 * @param id
 	 * @param desc
 	 * @param name
@@ -109,11 +151,13 @@ public class ProjectPortal {
 	 */
 	@Path("/update")
 	@PUT
-	public String updateProject(@QueryParam("curuserid") int curUserId,
+	public String updateProject(@Context HttpServletRequest request,
 			@QueryParam("id") int id,
 			@QueryParam("desc") String desc,
 			@QueryParam("name") String name,
 			@QueryParam("accountlist") String accountList) {
+		HttpSession session = request.getSession();
+		int curUserId = (int) session.getAttribute("KEY_USER_ID");
 		if (!organizationMgr.canUserManageProject(curUserId, id)) {
             return error;
         }
